@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:onboarding_app/features/onboarding_screen.dart';
 
 class BackgroundGradientColor extends StatelessWidget {
-  const BackgroundGradientColor({super.key});
+  final Widget child;
+  const BackgroundGradientColor({super.key, required this.child});
 
   @override
   Widget build(context) {
@@ -15,6 +15,6 @@ class BackgroundGradientColor extends StatelessWidget {
             Color.fromARGB(255, 8, 34, 87),
           ], begin: Alignment.topCenter, end: Alignment.bottomCenter),
         ),
-        child: const OnboardingPage());
+        child: child);
   }
 }

@@ -26,6 +26,8 @@ class _RepeatingVideo extends State<RepeatingVideo> {
 
   @override
   void dispose() {
+    _controller.pause(); // Stop the audio immediately
+    _controller.dispose(); // Free up memory
     super.dispose();
   }
 
