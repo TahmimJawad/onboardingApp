@@ -20,6 +20,8 @@ class locationScreen extends StatefulWidget {
 // ignore: camel_case_types
 class _locationScreenState extends State<locationScreen> {
   String _buttonText = "Use Current Location";
+  double lat = 0;
+  double long = 0;
 
   Future<void> _getCurrentLocation() async {
     bool serviceEnabled;
@@ -38,12 +40,14 @@ class _locationScreenState extends State<locationScreen> {
     try {
       List<Placemark> placemarks =
           await placemarkFromCoordinates(position.latitude, position.longitude);
+      lat = position.latitude;
+      long = position.longitude;
 
       if (placemarks.isNotEmpty) {
         Placemark place = placemarks[0];
         setState(() {
           _buttonText = "${place.locality}, ${place.country}";
-          HomeNavigationService.goToAlarm(context, _buttonText);
+          HomeNavigationService.goToAlarm(context, _buttonText, lat!, long!);
         });
       }
     } catch (e) {
@@ -64,8 +68,8 @@ class _locationScreenState extends State<locationScreen> {
               getCurrentLocation: _getCurrentLocation,
             ),
             homeButtonWidget(
-              homeScreen: () =>
-                  HomeNavigationService.goToAlarm(context, 'Select Location'),
+              homeScreen: () => HomeNavigationService.goToAlarm(
+                  context, 'Select Location', lat, long),
             ),
           ],
         ),
