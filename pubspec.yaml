@@ -32,6 +32,10 @@ dependencies:
     sdk: flutter
   video_player: ^2.8.1
   google_fonts: ^6.2.1
+  geolocator: 13.0.3
+  geolocator_android: 4.6.1
+  geocoding: ^3.0.0
+
 
 
   # The following adds the Cupertino Icons font to your application.
