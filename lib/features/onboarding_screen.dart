@@ -29,7 +29,6 @@ class _OnboardingPageState extends State<OnboardingPage> {
         curve: Curves.easeInOut,
       );
     } else {
-      // CHANGE ROUTE HERE
       Navigator.pushReplacement(
         context,
         MaterialPageRoute(builder: (context) => const locationScreen()),

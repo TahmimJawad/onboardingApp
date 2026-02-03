@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
+// ignore: camel_case_types
 class alarmLocationButtonWidget extends StatelessWidget {
-  final String buttonText; // NEW: Receives the location name
-  final VoidCallback onPressed; // NEW: Receives the click action
-
+  final String buttonText;
+  final VoidCallback onPressed;
   const alarmLocationButtonWidget({
     super.key,
     required this.buttonText,
@@ -19,7 +19,7 @@ class alarmLocationButtonWidget extends StatelessWidget {
         width: 328,
         height: 56,
         child: ElevatedButton(
-          onPressed: onPressed, // Triggers the search modal
+          onPressed: onPressed,
           style: ElevatedButton.styleFrom(
             backgroundColor: Colors.white.withOpacity(0.1),
             shadowColor: Colors.transparent,
@@ -30,7 +30,7 @@ class alarmLocationButtonWidget extends StatelessWidget {
             padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 12),
           ),
           child: Row(
-            mainAxisAlignment: MainAxisAlignment.end, // Content at right
+            mainAxisAlignment: MainAxisAlignment.end,
             children: [
               const Icon(
                 Icons.location_on_outlined,
@@ -38,10 +38,9 @@ class alarmLocationButtonWidget extends StatelessWidget {
                 size: 24,
               ),
               const SizedBox(width: 8),
-              // Expanded ensures long names don't crash the UI
               Expanded(
                 child: Text(
-                  buttonText, // Displays your selection
+                  buttonText,
                   textAlign: TextAlign.right,
                   overflow: TextOverflow.ellipsis,
                   style: GoogleFonts.oxygen(
